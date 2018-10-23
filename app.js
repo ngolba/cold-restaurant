@@ -1,6 +1,11 @@
 const express = require('express')
+const path = require('path')
 const app = express();
-const PORT = 7100;
+const PORT = process.env.PORT || 7100;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 
 
 app.listen(PORT, () => console.log(`Index listening on PORT ${PORT}!`))
