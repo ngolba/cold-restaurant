@@ -50,7 +50,7 @@
 				<label for="id-input">Unique ID</label>
 				<input class="form-control" id="id-input" type="text" required>
 				</div><br>
-				<button class="btn btn-block" id="add-employee" type="submit">Submit</button>
+				<button class="btn btn-block" id="add-reso" type="submit">Submit</button>
 			</form>
 		</div>
 	</div>
@@ -66,3 +66,21 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+$('#add-reso').click((event) => {
+	event.preventDefault();
+	let newReso = {
+		name: $('#name-input').val().trim(),
+		phone: $('#phone-input').val().trim(),
+		email: $('#email-input').val().trim(),
+		id: $('#id-input').val().trim()
+	};
+
+	$.post('/api/tables', newReso)
+	.then((data) => {
+		console.log('reserve.html', data);
+	})
+})
+	
+</script>
